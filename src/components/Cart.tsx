@@ -21,7 +21,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
     return acc + priceNum;
   }, 0);
 
-  const formatPrice = (num) => `Tsh ${num.toLocaleString()}`;
+  const formatPrice = (num: number) => `Tsh ${num.toLocaleString()}`;
 
   const handleCheckout = async () => {
     if (!user) {
