@@ -44,6 +44,30 @@ const App: React.FC = () => {
     }
   ];
 
+  const budgetPhones = [
+    {
+      name: "Itel S23 Plus",
+      price: "Tsh 350,000",
+      imageColor: "transparent",
+      imageUrl: "/itel_s23_plus.png",
+      specs: ["256GB Storage", "8GB RAM", "50MP Camera", "Curved AMOLED"]
+    },
+    {
+      name: "Nokia G42 5G",
+      price: "Tsh 450,000",
+      imageColor: "transparent",
+      imageUrl: "/nokia_g42.png",
+      specs: ["128GB Storage", "6GB RAM", "50MP Camera", "Snapdragon 480+"]
+    },
+    {
+      name: "Tecno Pop 8",
+      price: "Tsh 220,000",
+      imageColor: "transparent",
+      imageUrl: "/tecno_pop_8.png",
+      specs: ["64GB Storage", "4GB RAM", "13MP Camera", "90Hz Display"]
+    }
+  ];
+
   return (
     <>
       <Navbar />
@@ -65,6 +89,21 @@ const App: React.FC = () => {
         
         <div className="text-center mt-3">
           <button className="btn-secondary">Tazama Simu Zote</button>
+        </div>
+      </section>
+
+      <section className="container section-padding" id="bajeti" style={{ paddingTop: '2rem' }}>
+        <div className="section-header text-center">
+          <h2 className="section-title">Simu za <span className="text-gradient">Bajeti / Ndogo</span></h2>
+          <p className="section-subtitle">Simu za kisasa za Itel, Nokia na Tecno kwa bei nafuu.</p>
+        </div>
+        
+        <div className="products-grid">
+          {budgetPhones.map((phone, index) => (
+            <div className={`animate-fade-in delay-${(index + 1) * 100}`} key={index}>
+              <ProductCard {...phone} />
+            </div>
+          ))}
         </div>
       </section>
 
