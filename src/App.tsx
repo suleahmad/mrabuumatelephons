@@ -29,10 +29,18 @@ const App: React.FC = () => {
       specs: ["256GB Storage", "8GB RAM", "48MP Camera", "A17 Pro Chip"]
     },
     {
-      name: "OnePlus 12",
-      price: "Tsh 2,200,000",
-      imageColor: "linear-gradient(135deg, #16a34a, #15803d)",
-      specs: ["256GB Storage", "16GB RAM", "50MP Camera", "Snapdragon 8 Gen 3"]
+      name: "Tecno Phantom V Fold",
+      price: "Tsh 2,500,000",
+      imageColor: "transparent",
+      imageUrl: "/tecno_phantom_v_fold.png",
+      specs: ["512GB Storage", "12GB RAM", "50MP Camera", "Dimensity 9000+"]
+    },
+    {
+      name: "Tecno Camon 30 Premier",
+      price: "Tsh 1,100,000",
+      imageColor: "transparent",
+      imageUrl: "/tecno_camon_30_premier.png",
+      specs: ["512GB Storage", "12GB RAM", "50MP Triple Camera", "Dimensity 8200 Ultimate"]
     }
   ];
 
