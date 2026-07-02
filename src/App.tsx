@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import ProductCard from './components/ProductCard';
 import Footer from './components/Footer';
+import AuthModal from './components/AuthModal';
 import './App.css'; // if needed, but we rely on index.css mostly
 
 const App: React.FC = () => {
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [authModalMode, setAuthModalMode] = useState<'login' | 'signup'>('login');
+
+  const handleOpenAuthModal = (mode: 'login' | 'signup') => {
+    setAuthModalMode(mode);
+    setIsAuthModalOpen(true);
+  };
+
   const featuredPhones = [
     {
       name: "Google Pixel 8 Pro",
@@ -70,7 +79,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar onOpenAuthModal={handleOpenAuthModal} />
       <HeroSection />
       
       <section className="container section-padding" id="bidhaa">
@@ -108,6 +117,12 @@ const App: React.FC = () => {
       </section>
 
       <Footer />
+      
+      <AuthModal 
+        isOpen={isAuthModalOpen} 
+        onClose={() => setIsAuthModalOpen(false)} 
+        initialMode={authModalMode} 
+      />
     </>
   );
 };

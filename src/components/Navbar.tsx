@@ -1,7 +1,11 @@
 import React from 'react';
 import './Navbar.css';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  onOpenAuthModal?: (mode: 'login' | 'signup') => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onOpenAuthModal }) => {
   return (
     <nav className="navbar glass-panel">
       <div className="container navbar-content">
@@ -24,8 +28,8 @@ const Navbar: React.FC = () => {
         </ul>
 
         <div className="nav-actions">
-          <button className="btn-text">Ingia</button>
-          <button className="btn-primary-small">Jisajili</button>
+          <button className="btn-text" onClick={() => onOpenAuthModal?.('login')}>Ingia</button>
+          <button className="btn-primary-small" onClick={() => onOpenAuthModal?.('signup')}>Jisajili</button>
           <button className="cart-btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="9" cy="21" r="1"></circle>
