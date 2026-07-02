@@ -25,9 +25,9 @@ const Footer: React.FC = () => {
         <div className="footer-col">
           <h4 className="footer-title">Wasiliana Nasi</h4>
           <ul className="footer-links">
-            <li>Simu: +255 700 000 000</li>
-            <li>Barua pepe: info@mrabuumatelephon.com</li>
-            <li>Dar es Salaam, Tanzania</li>
+            <li>Simu/WhatsApp: 0773068054 / 0676868054</li>
+            <li>Barua pepe: sulehamas611@gmail.com</li>
+            <li>Magari 7 Mbezi Stendi ya Magufuli</li>
           </ul>
         </div>
       </div>
