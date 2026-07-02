@@ -10,7 +10,8 @@ const App: React.FC = () => {
     {
       name: "iPhone 15 Pro Max",
       price: "Tsh 3,500,000",
-      imageColor: "linear-gradient(135deg, #1e293b, #0f172a)",
+      imageColor: "transparent",
+      imageUrl: "/iphone_15_pro_max.png",
       specs: ["256GB Storage", "8GB RAM", "48MP Camera", "A17 Pro Chip"]
     },
     {

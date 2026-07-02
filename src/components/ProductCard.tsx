@@ -5,14 +5,19 @@ interface ProductCardProps {
   name: string;
   price: string;
   imageColor: string;
+  imageUrl?: string;
   specs: string[];
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ name, price, imageColor, specs }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ name, price, imageColor, imageUrl, specs }) => {
   return (
     <div className="product-card glass-panel">
       <div className="product-image" style={{ background: imageColor }}>
-        <div className="phone-silhouette"></div>
+        {imageUrl ? (
+          <img src={imageUrl} alt={name} className="product-photo" />
+        ) : (
+          <div className="phone-silhouette"></div>
+        )}
       </div>
       <div className="product-info">
         <h3 className="product-name">{name}</h3>
