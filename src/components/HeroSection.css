@@ -95,52 +95,13 @@
   transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
 }
 
-.phone-mockup {
-  width: 280px;
-  height: 580px;
-  background: #000;
-  border-radius: 40px;
-  padding: 8px;
-  border: 2px solid #333;
-  box-shadow: inset 0 0 10px rgba(255,255,255,0.2), 0 0 20px var(--accent-glow);
-  position: relative;
-}
-
-.phone-screen {
+.hero-mockup-img {
   width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #1e1b4b, #312e81, #4c1d95);
-  border-radius: 32px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.camera-notch {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 25px;
-  background: #000;
+  max-width: 400px;
+  height: auto;
   border-radius: 20px;
-  z-index: 10;
-}
-
-.screen-content {
-  padding: 2rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.time {
-  font-size: 3rem;
-  font-weight: 200;
-  margin-top: 2rem;
-  color: white;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px var(--accent-glow);
+  display: block;
 }
 
 @media (max-width: 992px) {

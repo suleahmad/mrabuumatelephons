@@ -23,15 +23,7 @@ const HeroSection: React.FC = () => {
         <div className="hero-image animate-fade-in delay-200">
           <div className="image-wrapper glass-panel">
             {/* We use a placeholder since we can't generate images easily here, but we will style it to look like a premium phone showcase */}
-            <div className="phone-mockup">
-              <div className="phone-screen">
-                <div className="camera-notch"></div>
-                <div className="screen-content">
-                  <div className="time">12:00</div>
-                  <div className="widgets"></div>
-                </div>
-              </div>
-            </div>
+            <img src="/hero_phones.png" alt="Simu Janja za Kisasa" className="hero-mockup-img" />
           </div>
         </div>
       </div>
