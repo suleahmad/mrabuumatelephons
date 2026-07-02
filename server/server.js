@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './db.js';
+import authRoutes from './routes/auth.js';
+import orderRoutes from './routes/orders.js';
 
 dotenv.config();
 
@@ -18,6 +20,10 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.send('Mrabuu Matelephon API is running...');
 });
+
+// Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/orders', orderRoutes);
 
 const PORT = process.env.PORT || 5000;
 

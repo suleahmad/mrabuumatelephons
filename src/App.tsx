@@ -4,10 +4,12 @@ import HeroSection from './components/HeroSection';
 import ProductCard from './components/ProductCard';
 import Footer from './components/Footer';
 import AuthModal from './components/AuthModal';
+import Cart from './components/Cart';
 import './App.css'; // if needed, but we rely on index.css mostly
 
 const App: React.FC = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const [authModalMode, setAuthModalMode] = useState<'login' | 'signup'>('login');
 
   const handleOpenAuthModal = (mode: 'login' | 'signup') => {
@@ -79,7 +81,10 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Navbar onOpenAuthModal={handleOpenAuthModal} />
+      <Navbar 
+        onOpenAuthModal={handleOpenAuthModal} 
+        onOpenCart={() => setIsCartOpen(true)}
+      />
       <HeroSection />
       
       <section className="container section-padding" id="bidhaa">
@@ -122,6 +127,10 @@ const App: React.FC = () => {
         isOpen={isAuthModalOpen} 
         onClose={() => setIsAuthModalOpen(false)} 
         initialMode={authModalMode} 
+      />
+      <Cart 
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
       />
     </>
   );

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
 import './AuthModal.css';
 
 interface AuthModalProps {
@@ -10,6 +11,14 @@ interface AuthModalProps {
 const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode }) => {
   const [mode, setMode] = useState<'login' | 'signup'>(initialMode);
   const [showPassword, setShowPassword] = useState(false);
+  
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  
+  const { login, register } = useAuth();
 
   // Update mode if initialMode changes
   React.useEffect(() => {
@@ -45,17 +54,34 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode }) =
           </p>
         </div>
 
-        <form className="auth-form" onSubmit={(e) => { e.preventDefault(); onClose(); }}>
+        <form className="auth-form" onSubmit={async (e) => { 
+          e.preventDefault(); 
+          setError('');
+          setLoading(true);
+          let res;
+          if (mode === 'signup') {
+            res = await register(name, email, password);
+          } else {
+            res = await login(email, password);
+          }
+          setLoading(false);
+          if (res.success) {
+            onClose();
+          } else {
+            setError(res.message || 'Imeleta hitilafu. Jaribu tena.');
+          }
+        }}>
+          {error && <div style={{color: '#ff4d4f', marginBottom: '10px', fontSize: '0.9rem', textAlign: 'center'}}>{error}</div>}
           {mode === 'signup' && (
             <div className="form-group">
               <label>Jina Kamili</label>
-              <input type="text" placeholder="Mf. Ali Juma" required />
+              <input type="text" placeholder="Mf. Ali Juma" value={name} onChange={(e) => setName(e.target.value)} required />
             </div>
           )}
           
           <div className="form-group">
             <label>Barua Pepe</label>
-            <input type="email" placeholder="mfano@email.com" required />
+            <input type="email" placeholder="mfano@email.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </div>
           
           <div className="form-group">
@@ -64,6 +90,8 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode }) =
               <input 
                 type={showPassword ? "text" : "password"} 
                 placeholder="********" 
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required 
               />
               <button 
@@ -87,8 +115,8 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode }) =
             </div>
           </div>
 
-          <button type="submit" className="btn-primary w-full mt-2">
-            {mode === 'login' ? 'Ingia' : 'Jisajili'}
+          <button type="submit" className="btn-primary w-full mt-2" disabled={loading}>
+            {loading ? 'Inapakia...' : (mode === 'login' ? 'Ingia' : 'Jisajili')}
           </button>
         </form>
 

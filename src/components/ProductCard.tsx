@@ -1,4 +1,5 @@
 import React from 'react';
+import { useCart } from '../context/CartContext';
 import './ProductCard.css';
 
 interface ProductCardProps {
@@ -10,6 +11,8 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ name, price, imageColor, imageUrl, specs }) => {
+  const { addToCart } = useCart();
+
   return (
     <div className="product-card glass-panel">
       <div className="product-image" style={{ background: imageColor }}>
@@ -27,7 +30,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, imageColor, imag
             <li key={index}>{spec}</li>
           ))}
         </ul>
-        <button className="btn-primary w-full">Ongeza Kikapuni</button>
+        <button 
+          className="btn-primary w-full"
+          onClick={() => addToCart({ name, price, imageUrl })}
+        >
+          Ongeza Kikapuni
+        </button>
       </div>
     </div>
   );
