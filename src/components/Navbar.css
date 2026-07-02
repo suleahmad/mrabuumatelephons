@@ -27,12 +27,10 @@
   white-space: nowrap;
 }
 
-.logo-text {
-  color: var(--text-main);
-}
-
-.logo-accent {
-  color: var(--accent);
+.logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
 }
 
 .search-bar {

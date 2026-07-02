@@ -10,8 +10,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAuthModal }) => {
     <nav className="navbar glass-panel">
       <div className="container navbar-content">
         <a href="/" className="logo">
-          <span className="logo-text">Mrabuu</span>
-          <span className="logo-accent">Matelephon</span>
+          <img src="/mrabuu_logo.png" alt="Mrabuu Matelephon Logo" className="logo-img" />
         </a>
         
         <div className="search-bar">

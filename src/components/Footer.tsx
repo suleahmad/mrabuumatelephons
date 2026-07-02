@@ -7,8 +7,7 @@ const Footer: React.FC = () => {
       <div className="container footer-content">
         <div className="footer-col">
           <div className="logo">
-            <span className="logo-text">Mrabuu</span>
-            <span className="logo-accent">Matelephon</span>
+            <img src="/mrabuu_logo.png" alt="Mrabuu Matelephon Logo" className="logo-img" />
           </div>
           <p className="footer-desc">
             Duka namba moja la simu janja za kisasa. Tunakupa ubora, uaminifu na huduma bora.

@@ -12,6 +12,12 @@
   margin-bottom: 3rem;
 }
 
+.logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
 .footer-desc {
   color: var(--text-muted);
   margin-top: 1rem;
