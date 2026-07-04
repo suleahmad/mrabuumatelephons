@@ -6,9 +6,10 @@ import './Navbar.css';
 interface NavbarProps {
   onOpenAuthModal?: (mode: 'login' | 'signup') => void;
   onOpenCart?: () => void;
+  onSearch?: (query: string) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onOpenAuthModal, onOpenCart }) => {
+const Navbar: React.FC<NavbarProps> = ({ onOpenAuthModal, onOpenCart, onSearch }) => {
   const { user, logout } = useAuth();
   const { cartItems } = useCart();
   
@@ -24,7 +25,11 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAuthModal, onOpenCart }) => {
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
-          <input type="text" placeholder="Tafuta simu..." />
+          <input 
+            type="text" 
+            placeholder="Tafuta simu..." 
+            onChange={(e) => onSearch?.(e.target.value)}
+          />
         </div>
 
         <ul className="nav-links">

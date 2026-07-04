@@ -11,6 +11,7 @@ const App: React.FC = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [authModalMode, setAuthModalMode] = useState<'login' | 'signup'>('login');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleOpenAuthModal = (mode: 'login' | 'signup') => {
     setAuthModalMode(mode);
@@ -84,6 +85,7 @@ const App: React.FC = () => {
       <Navbar 
         onOpenAuthModal={handleOpenAuthModal} 
         onOpenCart={() => setIsCartOpen(true)}
+        onSearch={setSearchQuery}
       />
       <HeroSection />
       
@@ -94,7 +96,9 @@ const App: React.FC = () => {
         </div>
         
         <div className="products-grid">
-          {featuredPhones.map((phone, index) => (
+          {featuredPhones
+            .filter(phone => phone.name.toLowerCase().includes(searchQuery.toLowerCase()))
+            .map((phone, index) => (
             <div className={`animate-fade-in delay-${(index + 1) * 100}`} key={index}>
               <ProductCard {...phone} />
             </div>
@@ -113,7 +117,9 @@ const App: React.FC = () => {
         </div>
         
         <div className="products-grid">
-          {budgetPhones.map((phone, index) => (
+          {budgetPhones
+            .filter(phone => phone.name.toLowerCase().includes(searchQuery.toLowerCase()))
+            .map((phone, index) => (
             <div className={`animate-fade-in delay-${(index + 1) * 100}`} key={index}>
               <ProductCard {...phone} />
             </div>
