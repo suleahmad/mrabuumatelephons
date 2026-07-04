@@ -62,10 +62,7 @@
 }
 
 .text-gradient {
-  background: linear-gradient(to right, #8b5cf6, #3b82f6, #ec4899);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
 }
 
 .hero-description {

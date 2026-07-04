@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary-bg: #09090b;
-  --secondary-bg: #18181b;
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
+  --primary-bg: #ffffff;
+  --secondary-bg: #f1f5f9;
+  --text-main: #0f172a;
+  --text-muted: #475569;
   --accent: #8b5cf6;
   --accent-hover: #7c3aed;
-  --glass-bg: rgba(24, 24, 27, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.1);
   --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.2);
   --font-sans: 'Outfit', system-ui, sans-serif;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
