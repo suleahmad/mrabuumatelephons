@@ -27,33 +27,45 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const login = async (email: string, password: string) => {
-    const res = await fetch('https://mrabuumatelephons.onrender.com/api/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password })
-    });
-    const data = await res.json();
-    if (res.ok) {
-      setUser(data);
-      localStorage.setItem('userInfo', JSON.stringify(data));
-      return { success: true };
+    try {
+      const res = await fetch('https://mrabuumatelephons.onrender.com/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      
+      const data = await res.json().catch(() => ({ message: 'Server error (HTML instead of JSON)' }));
+      
+      if (res.ok) {
+        setUser(data);
+        localStorage.setItem('userInfo', JSON.stringify(data));
+        return { success: true };
+      }
+      return { success: false, message: data.message || 'Login failed.' };
+    } catch (error) {
+      return { success: false, message: 'Network error or server is down.' };
     }
-    return { success: false, message: data.message };
   };
 
   const register = async (name: string, email: string, password: string) => {
-    const res = await fetch('https://mrabuumatelephons.onrender.com/api/auth/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, password })
-    });
-    const data = await res.json();
-    if (res.ok) {
-      setUser(data);
-      localStorage.setItem('userInfo', JSON.stringify(data));
-      return { success: true };
+    try {
+      const res = await fetch('https://mrabuumatelephons.onrender.com/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password })
+      });
+      
+      const data = await res.json().catch(() => ({ message: 'Server error (HTML instead of JSON)' }));
+      
+      if (res.ok) {
+        setUser(data);
+        localStorage.setItem('userInfo', JSON.stringify(data));
+        return { success: true };
+      }
+      return { success: false, message: data.message || 'Registration failed.' };
+    } catch (error) {
+      return { success: false, message: 'Network error or server is down.' };
     }
-    return { success: false, message: data.message };
   };
 
   const logout = () => {
