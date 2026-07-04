@@ -25,7 +25,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
 
   const handleCheckout = async () => {
     if (!user) {
-      setMessage('Tafadhali ingia au jisajili kwanza ili kununua.');
+      setMessage('Please login or sign up first to purchase.');
       return;
     }
     if (cartItems.length === 0) return;
@@ -44,13 +44,13 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
       });
       const data = await res.json();
       if (res.ok) {
-        setMessage('Hongera! Oda yako imepokelewa kikamilifu. Tutawasiliana nawe hivi punde.');
+        setMessage('Congratulations! Your order has been successfully received. We will contact you shortly.');
         clearCart();
       } else {
-        setMessage('Kuna hitilafu. ' + data.message);
+        setMessage('There is an error. ' + data.message);
       }
     } catch (error) {
-      setMessage('Tatizo la mtandao. Tafadhali jaribu tena.');
+      setMessage('Network error. Please try again.');
     }
     setLoading(false);
   };
@@ -59,7 +59,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
     <div className="cart-backdrop" onClick={onClose}>
       <div className="cart-sidebar glass-panel" onClick={e => e.stopPropagation()}>
         <div className="cart-header">
-          <h2>Kikapu Chako</h2>
+          <h2>Your Cart</h2>
           <button className="close-btn" onClick={onClose}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -70,7 +70,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
 
         <div className="cart-items">
           {cartItems.length === 0 ? (
-            <p className="empty-cart">Kikapu chako kipo wazi. Ongeza bidhaa!</p>
+            <p className="empty-cart">Your cart is empty. Add products!</p>
           ) : (
             cartItems.map((item, index) => (
               <div key={index} className="cart-item">
@@ -79,7 +79,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
                   <h4>{item.name}</h4>
                   <p>{item.price}</p>
                 </div>
-                <button className="remove-btn" onClick={() => removeFromCart(index)}>Toa</button>
+                <button className="remove-btn" onClick={() => removeFromCart(index)}>Remove</button>
               </div>
             ))
           )}
@@ -88,12 +88,12 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
         {cartItems.length > 0 && (
           <div className="cart-footer">
             <div className="cart-total">
-              <span>Jumla:</span>
+              <span>Total:</span>
               <span>{formatPrice(total)}</span>
             </div>
             {message && <div className="cart-message">{message}</div>}
             <button className="btn-primary w-full" onClick={handleCheckout} disabled={loading}>
-              {loading ? 'Tunasindika Oda...' : 'Kamilisha Manunuzi (Checkout)'}
+              {loading ? 'Processing Order...' : 'Checkout'}
             </button>
           </div>
         )}

@@ -91,8 +91,8 @@ const App: React.FC = () => {
       
       <section className="container section-padding" id="bidhaa">
         <div className="section-header text-center">
-          <h2 className="section-title">Bidhaa <span className="text-gradient">Zinazopendwa</span></h2>
-          <p className="section-subtitle">Chagua simu yako ya ndoto kutoka kwenye mkusanyiko wetu bora.</p>
+          <h2 className="section-title">Popular <span className="text-gradient">Products</span></h2>
+          <p className="section-subtitle">Choose your dream phone from our best collection.</p>
         </div>
         
         <div className="products-grid">
@@ -106,14 +106,14 @@ const App: React.FC = () => {
         </div>
         
         <div className="text-center mt-3">
-          <button className="btn-secondary">Tazama Simu Zote</button>
+          <button className="btn-secondary">View All Phones</button>
         </div>
       </section>
 
       <section className="container section-padding" id="bajeti" style={{ paddingTop: '2rem' }}>
         <div className="section-header text-center">
-          <h2 className="section-title">Simu za <span className="text-gradient">Bajeti / Ndogo</span></h2>
-          <p className="section-subtitle">Simu za kisasa za Itel, Nokia na Tecno kwa bei nafuu.</p>
+          <h2 className="section-title">Budget / Affordable <span className="text-gradient">Phones</span></h2>
+          <p className="section-subtitle">Modern Itel, Nokia, and Tecno phones at affordable prices.</p>
         </div>
         
         <div className="products-grid">

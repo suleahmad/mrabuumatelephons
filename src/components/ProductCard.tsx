@@ -34,7 +34,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, imageColor, imag
           className="btn-primary w-full"
           onClick={() => addToCart({ name, price, imageUrl })}
         >
-          Ongeza Kikapuni
+          Add to Cart
         </button>
       </div>
     </div>

@@ -10,28 +10,28 @@ const Footer: React.FC = () => {
             <img src="/mrabuu_logo.png" alt="Mrabuu Matelephon Logo" className="logo-img" />
           </div>
           <p className="footer-desc">
-            Duka namba moja la simu janja za kisasa. Tunakupa ubora, uaminifu na huduma bora.
+            The number one store for modern smartphones. We provide quality, reliability, and excellent service.
           </p>
         </div>
         <div className="footer-col">
-          <h4 className="footer-title">Viungo Muhimu</h4>
+          <h4 className="footer-title">Quick Links</h4>
           <ul className="footer-links">
-            <li><a href="#nyumbani">Nyumbani</a></li>
-            <li><a href="#bidhaa">Bidhaa Zetu</a></li>
-            <li><a href="#">Sheria na Masharti</a></li>
+            <li><a href="#nyumbani">Home</a></li>
+            <li><a href="#bidhaa">Our Products</a></li>
+            <li><a href="#">Terms and Conditions</a></li>
           </ul>
         </div>
         <div className="footer-col">
-          <h4 className="footer-title">Wasiliana Nasi</h4>
+          <h4 className="footer-title">Contact Us</h4>
           <ul className="footer-links">
-            <li>Simu/WhatsApp: 0773068054 / 0676868054</li>
-            <li>Barua pepe: sulehamas611@gmail.com</li>
+            <li>Phone/WhatsApp: 0773068054 / 0676868054</li>
+            <li>Email: sulehamas611@gmail.com</li>
             <li>Magari 7 Mbezi Stendi ya Magufuli</li>
           </ul>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2026 MrabuuMatelephon. Haki zote zimehifadhiwa.</p>
+        <p>&copy; 2026 MrabuuMatelephon. All rights reserved.</p>
       </div>
     </footer>
   );

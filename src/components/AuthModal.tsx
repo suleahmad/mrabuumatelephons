@@ -45,12 +45,12 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode }) =
 
         <div className="auth-header text-center">
           <h2 className="auth-title">
-            {mode === 'login' ? 'Karibu Tena!' : 'Jiunge Nasi'}
+            {mode === 'login' ? 'Welcome Back!' : 'Join Us'}
           </h2>
           <p className="auth-subtitle">
             {mode === 'login' 
-              ? 'Ingiza taarifa zako ili kuendelea' 
-              : 'Tengeneza akaunti yako sasa'}
+              ? 'Enter your details to continue' 
+              : 'Create your account now'}
           </p>
         </div>
 
@@ -68,24 +68,24 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode }) =
           if (res.success) {
             onClose();
           } else {
-            setError(res.message || 'Imeleta hitilafu. Jaribu tena.');
+            setError(res.message || 'An error occurred. Please try again.');
           }
         }}>
           {error && <div style={{color: '#ff4d4f', marginBottom: '10px', fontSize: '0.9rem', textAlign: 'center'}}>{error}</div>}
           {mode === 'signup' && (
             <div className="form-group">
-              <label>Jina Kamili</label>
-              <input type="text" placeholder="Mf. Ali Juma" value={name} onChange={(e) => setName(e.target.value)} required />
+              <label>Full Name</label>
+              <input type="text" placeholder="e.g. John Doe" value={name} onChange={(e) => setName(e.target.value)} required />
             </div>
           )}
           
           <div className="form-group">
-            <label>Barua Pepe</label>
-            <input type="email" placeholder="mfano@email.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <label>Email</label>
+            <input type="email" placeholder="example@email.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </div>
           
           <div className="form-group">
-            <label>Nywila (Password)</label>
+            <label>Password</label>
             <div className="password-input-wrapper">
               <input 
                 type={showPassword ? "text" : "password"} 
@@ -116,15 +116,15 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode }) =
           </div>
 
           <button type="submit" className="btn-primary w-full mt-2" disabled={loading}>
-            {loading ? 'Inapakia...' : (mode === 'login' ? 'Ingia' : 'Jisajili')}
+            {loading ? 'Loading...' : (mode === 'login' ? 'Login' : 'Sign Up')}
           </button>
         </form>
 
         <div className="auth-footer">
           {mode === 'login' ? (
-            <p>Huna akaunti? <span className="auth-link" onClick={() => setMode('signup')}>Jisajili Hapa</span></p>
+            <p>Don't have an account? <span className="auth-link" onClick={() => setMode('signup')}>Sign Up Here</span></p>
           ) : (
-            <p>Una akaunti tayari? <span className="auth-link" onClick={() => setMode('login')}>Ingia Hapa</span></p>
+            <p>Already have an account? <span className="auth-link" onClick={() => setMode('login')}>Login Here</span></p>
           )}
         </div>
       </div>

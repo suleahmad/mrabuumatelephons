@@ -27,26 +27,26 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAuthModal, onOpenCart, onSearch }
           </svg>
           <input 
             type="text" 
-            placeholder="Tafuta simu..." 
+            placeholder="Search for a phone..." 
             onChange={(e) => onSearch?.(e.target.value)}
           />
         </div>
 
         <ul className="nav-links">
-          <li><a href="#nyumbani">Nyumbani</a></li>
-          <li><a href="#bidhaa">Bidhaa</a></li>
+          <li><a href="#nyumbani">Home</a></li>
+          <li><a href="#bidhaa">Products</a></li>
         </ul>
 
         <div className="nav-actions">
           {user ? (
             <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
-              <span style={{color: 'white', fontWeight: 'bold'}}>Habari, {user.name.split(' ')[0]}</span>
-              <button className="btn-text" onClick={logout}>Toka</button>
+              <span style={{color: 'white', fontWeight: 'bold'}}>Hello, {user.name.split(' ')[0]}</span>
+              <button className="btn-text" onClick={logout}>Logout</button>
             </div>
           ) : (
             <>
-              <button className="btn-text" onClick={() => onOpenAuthModal?.('login')}>Ingia</button>
-              <button className="btn-primary-small" onClick={() => onOpenAuthModal?.('signup')}>Jisajili</button>
+              <button className="btn-text" onClick={() => onOpenAuthModal?.('login')}>Login</button>
+              <button className="btn-primary-small" onClick={() => onOpenAuthModal?.('signup')}>Sign Up</button>
             </>
           )}
           <button className="cart-btn" onClick={onOpenCart}>
